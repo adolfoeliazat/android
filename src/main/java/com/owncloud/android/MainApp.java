@@ -80,6 +80,7 @@ import java.util.concurrent.TimeUnit;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.util.Pair;
 import androidx.multidex.MultiDexApplication;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
@@ -122,15 +123,16 @@ public class MainApp extends MultiDexApplication {
     @SuppressFBWarnings("ST")
     @Override
     public void onCreate() {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        preferences = PreferenceManager.fromContext(this);
+        setAppTheme(PreferenceManager.getTheme(getApplicationContext()));
+
         super.onCreate();
         JobManager.create(this).addJobCreator(new NCJobCreator());
         MainApp.mContext = getApplicationContext();
 
         new SecurityUtils();
         DisplayUtils.useCompatVectorIfNeeded();
-
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        preferences = PreferenceManager.fromContext(this);
         fixStoragePath();
 
         MainApp.storagePath = sharedPreferences.getString(SettingsActivity.PreferenceKeys.STORAGE_PATH,
@@ -651,6 +653,14 @@ public class MainApp extends MultiDexApplication {
             } else {
                 PreferenceManager.setLegacyClean(context, true);
             }
+        }
+    }
+
+    public static void setAppTheme(Boolean darkTheme) {
+        if (darkTheme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         }
     }
 }
