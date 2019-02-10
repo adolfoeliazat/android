@@ -400,7 +400,7 @@ public class RichDocumentsWebView extends ExternalSiteWebView {
                     if (richDocumentsWebView.webview.getVisibility() != View.VISIBLE) {
                         DisplayUtils.createSnackbar(richDocumentsWebView.findViewById(android.R.id.content),
                                                     R.string.timeout_richDocuments, Snackbar.LENGTH_INDEFINITE)
-                            .setActionTextColor(richDocumentsWebView.getResources().getColor(R.color.white))
+                            .setActionTextColor(richDocumentsWebView.getResources().getColor(R.color.fg_inverse))
                             .setAction(R.string.fallback_weblogin_back, v -> richDocumentsWebView.closeView()).show();
                     }
                 }, 10 * 1000);

@@ -56,6 +56,7 @@
     <color name="login_text_color">#ffffff</color>
     <color name="login_text_hint_color">#7fC0E3</color>
     <color name="login_btn_tint">#ffffff</color>
+    <color name="login_btn_stroke">#ffffff</color>
     <color name="login_asset">#ffffff</color>
     <color name="background_color">#FFFFFF</color>
     <color name="background_color_inverse">#000000</color>
@@ -83,6 +84,7 @@
     <color name="drawer_menu_icon">#757575</color>
     <color name="date_picker_header_text">#ffffff</color>
     <color name="date_picker_header_bg">#757575</color>
+    <color name="switchpref_track">#4D000000</color>
 
     <!-- Excluded from future app dark theme -->
     <color name="themed_fg">#FFFFFF</color>

@@ -25,7 +25,7 @@ package com.owncloud.android.ui.activity;
 
 import android.accounts.Account;
 import android.accounts.AccountManager;
-import android.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -342,8 +342,8 @@ public class UserInfoActivity extends FileActivity {
 
             AlertDialog alertDialog = (AlertDialog) getDialog();
 
-            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
-            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color);
+//            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(color);
+//            alertDialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(color);
         }
 
         @NonNull

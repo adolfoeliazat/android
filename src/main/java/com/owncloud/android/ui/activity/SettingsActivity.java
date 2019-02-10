@@ -700,10 +700,8 @@ public class SettingsActivity extends PreferenceActivity
         loadStoragePath();
 
         SwitchPreference themePref = (SwitchPreference) findPreference(getString(R.string.prefs_key_theme));
-        SharedPreferences appPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 
-        themePref.setSummary(appPrefs.getBoolean(com.owncloud.android.db.PreferenceManager.PREF__DARK_THEME,
-                            false) ?
+        themePref.setSummary(preferences.getTheme(getApplicationContext()) ?
                             getString(R.string.prefs_value_theme_dark) : getString(R.string.prefs_value_theme_light));
         themePref.setOnPreferenceChangeListener((preference, newValue) -> {
             MainApp.setAppTheme((Boolean) newValue);
@@ -867,7 +865,8 @@ public class SettingsActivity extends PreferenceActivity
 
                     int accentColor = ThemeUtils.primaryAccentColor(this);
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.FallbackTheming_Dialog);
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.FallbackTheming_Dialog);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.Theme_ownCloud_Dialog);
                     builder.setTitle(ThemeUtils.getColoredTitle(getString(R.string.prefs_e2e_mnemonic), accentColor));
                     builder.setMessage(mnemonic);
                     builder.setPositiveButton(ThemeUtils.getColoredTitle(getString(R.string.common_ok), accentColor),

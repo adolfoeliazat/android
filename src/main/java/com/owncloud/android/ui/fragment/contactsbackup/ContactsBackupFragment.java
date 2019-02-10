@@ -22,7 +22,6 @@ package com.owncloud.android.ui.fragment.contactsbackup;
 
 import android.Manifest;
 import android.accounts.Account;
-import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.PorterDuff;
@@ -40,6 +39,7 @@ import android.widget.TextView;
 import com.evernote.android.job.JobRequest;
 import com.evernote.android.job.util.support.PersistableBundleCompat;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.picker.MaterialDatePickerDialog;
 import com.google.android.material.snackbar.Snackbar;
 import com.owncloud.android.R;
 import com.owncloud.android.datamodel.ArbitraryDataProvider;
@@ -76,7 +76,7 @@ import third_parties.daveKoeller.AlphanumComparator;
 import static com.owncloud.android.ui.activity.ContactsPreferenceActivity.PREFERENCE_CONTACTS_AUTOMATIC_BACKUP;
 import static com.owncloud.android.ui.activity.ContactsPreferenceActivity.PREFERENCE_CONTACTS_LAST_BACKUP;
 
-public class ContactsBackupFragment extends FileFragment implements DatePickerDialog.OnDateSetListener {
+public class ContactsBackupFragment extends FileFragment implements MaterialDatePickerDialog.OnDateSetListener {
     public static final String TAG = ContactsBackupFragment.class.getSimpleName();
 
     @BindView(R.id.contacts_automatic_backup)
@@ -94,7 +94,7 @@ public class ContactsBackupFragment extends FileFragment implements DatePickerDi
     private Date selectedDate;
     private boolean calendarPickerOpen;
 
-    private DatePickerDialog datePickerDialog;
+    private MaterialDatePickerDialog datePickerDialog;
 
     private CompoundButton.OnCheckedChangeListener onCheckedChangeListener;
 
@@ -437,7 +437,8 @@ public class ContactsBackupFragment extends FileFragment implements DatePickerDi
         }
 
         if (backupFiles.size() > 0 && backupFiles.get(backupFiles.size() - 1) != null) {
-            datePickerDialog = new DatePickerDialog(contactsPreferenceActivity, this, year, month, day);
+//            datePickerDialog = new MaterialDatePickerDialog(contactsPreferenceActivity, this, year, month, day);
+            datePickerDialog = new MaterialDatePickerDialog(contactsPreferenceActivity, R.style.FallbackDatePickerDialogTheme);
             datePickerDialog.getDatePicker().setMaxDate(backupFiles.get(backupFiles.size() - 1)
                     .getModificationTimestamp());
             datePickerDialog.getDatePicker().setMinDate(backupFiles.get(0).getModificationTimestamp());
@@ -450,6 +451,9 @@ public class ContactsBackupFragment extends FileFragment implements DatePickerDi
             });
 
             datePickerDialog.show();
+            // TODO How do we deal with primary colours that are too light or dark
+            datePickerDialog.getButton(MaterialDatePickerDialog.BUTTON_NEGATIVE).setTextColor(ThemeUtils.primaryColor(getContext()));
+            datePickerDialog.getButton(MaterialDatePickerDialog.BUTTON_POSITIVE).setTextColor(ThemeUtils.primaryColor(getContext()));
         } else {
             DisplayUtils.showSnackMessage(getView().findViewById(R.id.contacts_linear_layout),
                     R.string.contacts_preferences_something_strange_happened);
