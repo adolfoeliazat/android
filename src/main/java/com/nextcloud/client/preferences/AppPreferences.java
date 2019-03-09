@@ -20,8 +20,6 @@
 
 package com.nextcloud.client.preferences;
 
-import android.content.Context;
-
 import com.owncloud.android.datamodel.OCFile;
 import com.owncloud.android.utils.FileSortOrder;
 
@@ -164,7 +162,7 @@ public interface AppPreferences {
      */
     int getUploaderBehaviour();
 
-    boolean getTheme(Context context);
+    boolean getTheme();
 
     /**
      * Saves the uploader behavior which the user has set last.

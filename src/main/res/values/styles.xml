@@ -22,21 +22,15 @@
 	<style name="Theme.ownCloud" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
     	<item name="android:actionBarStyle">@style/Theme.ownCloud.Widget.ActionBar</item>
     	<item name="actionBarStyle">@style/Theme.ownCloud.Widget.ActionBar</item>
-		<item name="actionModeBackground">@color/action_mode_background</item>
-		<!--<item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>-->
-		<item name="actionBarPopupTheme">@style/ThemeOverlay.AppTheme.PopupMenu</item>
-        <item name="android:actionBarPopupTheme">@style/ThemeOverlay.AppTheme.PopupMenu</item>
-		<item name="colorPrimary">@color/primary</item>
-		<item name="colorPrimaryDark">@color/primary_dark</item>
-		<item name="colorAccent">@color/color_accent</item>
-		<!--<item name="android:alertDialogTheme">@style/Theme.ownCloud.Dialog</item>-->
-		<item name="alertDialogTheme">@style/ownCloud.AlertDialog</item>
-		<item name="android:windowBackground">@color/background_color</item>
-		<item name="searchViewStyle">@style/ownCloud.SearchView</item>
+        <item name="actionModeBackground">@color/action_mode_background</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppTheme.PopupMenu</item>
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:alertDialogTheme">@style/ownCloud.AlertDialog</item>
+        <item name="searchViewStyle">@style/ownCloud.SearchView</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="colorSecondary">@color/textColor</item>
-        <item name="android:colorSecondary">@color/textColor</item>
-        <item name="android:datePickerDialogTheme">@style/FallbackDatePickerDialogTheme</item>
     </style>
 
 	<style name="FallbackThemingTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -45,13 +39,11 @@
 		<item name="colorAccent">#757575</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textColor">@color/textColor</item>
-        <item name="colorSecondary">@color/textColor</item>
-        <item name="android:colorSecondary">@color/textColor</item>
-        <item name="android:datePickerDialogTheme">@style/FallbackDatePickerDialogTheme</item>
-        <item name="alertDialogTheme">@style/FallbackTheming.Dialog</item>
+        <item name="android:alertDialogTheme">@style/FallbackTheming.Dialog</item>
+        <item name="dialogTheme">@style/FallbackTheming.Dialog</item>
+        <item name="android:windowBackground">@color/background_color</item>
     </style>
 
-	<!--<style name="FallbackDatePickerDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog">-->
 	<style name="FallbackDatePickerDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog">
         <!-- OK/Cancel button background colour -->
 		<item name="colorPrimary">@color/background_color</item>
@@ -83,14 +75,15 @@
         <item name="android:textColorSecondaryInverse">@color/fg_inverse</item>
     </style>
 
-    <style name="FallbackTheming.Dialog" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+    <style name="FallbackTheming.Dialog" parent="Theme.MaterialComponents.DayNight.Dialog">
 		<item name="colorPrimary">#424242</item>
 		<item name="colorPrimaryDark">#212121</item>
 		<item name="colorAccent">#757575</item>
 		<item name="windowNoTitle">false</item>
-		<item name="buttonBarButtonStyle">@style/Theme.ownCloud.Dialog.ButtonBar.Button</item>
-		<item name="buttonBarStyle">@style/Theme.ownCloud.Dialog.ButtonBar</item>
+        <item name="android:windowBackground">@color/background_color</item>
 	</style>
+
+    <style name="FallbackTheming.Dialog.Alert" parent="FallbackTheming.Dialog"></style>
 
 	<!-- separate action bar style for activities without an action bar -->
 	<style name="Theme.ownCloud.Toolbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -124,8 +117,7 @@
 		<item name="android:textColorPrimary">@color/primary</item>
 		<item name="searchViewStyle">@style/ownCloud.SearchView</item>
         <item name="android:textAllCaps">false</item>
-        <item name="android:colorBackground">@color/background_color</item>
-        <item name="buttonStyle">@style/Widget.MaterialComponents.Button.TextButton</item>
+        <item name="android:windowBackground">@color/background_color</item>
     </style>
 
 	<style name="ownCloud.Dialog" parent="Theme.MaterialComponents.DayNight.Dialog">
@@ -164,8 +156,7 @@
     </style>
 
     <style name="OutlineLogindButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
-        <!--<item name="colorAccent">@color/transparent</item>-->
-        <item name="colorAccent">#00000000</item>
+        <item name="colorAccent">@color/transparent</item>
         <item name="android:textColor">@color/textColor</item>
         <item name="android:textAllCaps">false</item>
         <item name="strokeColor">@color/login_btn_stroke</item>
@@ -247,9 +238,6 @@
 	<style name="Theme.ownCloud.Dialog" parent="@style/Theme.MaterialComponents.DayNight.Dialog.Alert">
 		<item name="windowNoTitle">false</item>
 		<item name="colorAccent">@color/color_accent</item>
-		<!--<item name="buttonBarButtonStyle">@style/Theme.ownCloud.Dialog.ButtonBar.Button</item>-->
-		<!--<item name="buttonBarStyle">@style/Theme.ownCloud.Dialog.ButtonBar</nBar.Button</item>-->
-		<!--<item name="buttonBarStyle">@style/Theme.ownCloud.Dialog.ButtonBar</item>-->
         <item name="android:windowBackground">@color/background_color</item>
     </style>
 
@@ -266,6 +254,8 @@
 	<style name="NavigationView_ItemTextAppearance">
 		<item name="android:ellipsize">end</item>
 		<item name="android:listDivider">@color/transparent</item>
+
+        <!-- TODO are these two necessary -->
 		<item name="android:textColor">@color/textColor</item>
 		<item name="android:color">@color/textColor</item>
 	</style>
@@ -291,6 +281,7 @@
 		<!-- setting a fixed width as follows results in narrow buttons with line breaks, but of course this is not a solution -->
 		<!-- <item name="android:width">100dp</item> -->
         <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/background_color</item>
 	</style>
 
     <style name="PassCodeStyle">
@@ -319,8 +310,19 @@
 	<style name="NextcloudTextAppearanceMedium" parent="@style/TextAppearance.AppCompat.Medium">
 	</style>
 
-	<style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    </style>
+
+    <style name="Nextcloud.TextInputLayout.Login" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@color/primary</item>
 	</style>
+
+    <!--<style name="Nextcloud.TextInputEditText.Login" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">-->
+        <!--<item name="android:background">@color/primary</item>-->
+        <!--<item name="android:textColor">@color/fg_inverse</item>-->
+        <!--<item name="android:editTextColor">@color/fg_inverse</item>-->
+	<!--</style>-->
+
 	<style name="EditText" parent="Theme.MaterialComponents.DayNight">
 		<item name="colorControlActivated">@color/login_text_color</item>
 		<item name="colorControlNormal">@color/login_text_color</item>

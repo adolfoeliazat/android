@@ -404,7 +404,7 @@ public final class PreferenceManager implements AppPreferences {
         return preferences.getInt(AUTO_PREF__UPLOADER_BEHAVIOR, 1);
     }
 
-    public boolean getTheme(Context context) {
+    public boolean getTheme() {
         return preferences.getBoolean(PREF__DARK_THEME, false);
     }
 

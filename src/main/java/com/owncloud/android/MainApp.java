@@ -125,7 +125,7 @@ public class MainApp extends MultiDexApplication {
     public void onCreate() {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         preferences = PreferenceManager.fromContext(this);
-        setAppTheme(PreferenceManager.getTheme(getApplicationContext()));
+        setAppTheme(preferences.getTheme());
 
         super.onCreate();
         JobManager.create(this).addJobCreator(new NCJobCreator());
