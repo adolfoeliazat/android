@@ -24,6 +24,10 @@ import com.owncloud.android.datamodel.OCFile;
 import com.owncloud.android.utils.FileSortOrder;
 
 public interface AppPreferences {
+
+    void setPushToken(String pushToken);
+    String getPushToken();
+
     boolean instantPictureUploadEnabled();
     boolean instantVideoUploadEnabled();
 

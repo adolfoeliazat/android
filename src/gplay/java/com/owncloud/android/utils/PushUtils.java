@@ -193,8 +193,7 @@ public final class PushUtils {
         }
     }
 
-    public static void pushRegistrationToServer() {
-        String token = PreferenceManager.getPushToken(MainApp.getAppContext());
+    public static void pushRegistrationToServer(final String token) {
         arbitraryDataProvider = new ArbitraryDataProvider(MainApp.getAppContext().getContentResolver());
 
         if (!TextUtils.isEmpty(MainApp.getAppContext().getResources().getString(R.string.push_server_url)) &&
@@ -373,7 +372,8 @@ public final class PushUtils {
         FileUtils.deleteQuietly(privateKeyFile);
         FileUtils.deleteQuietly(publicKeyFile);
 
-        pushRegistrationToServer();
+        String pushToken = PreferenceManager.fromContext(context).getPushToken();
+        pushRegistrationToServer(pushToken);
         PreferenceManager.setKeysReInit(context);
     }
 

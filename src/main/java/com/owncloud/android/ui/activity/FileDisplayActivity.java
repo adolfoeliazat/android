@@ -2566,7 +2566,7 @@ public class FileDisplayActivity extends HookActivity
         if (!PreferenceManager.getKeysReInit(getApplicationContext())) {
             PushUtils.reinitKeys();
         } else {
-            PushUtils.pushRegistrationToServer();
+            PushUtils.pushRegistrationToServer(preferences.getPushToken());
         }
     }
 
